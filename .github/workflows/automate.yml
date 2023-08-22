@@ -32,6 +32,7 @@ jobs:
         run: |
               git remote add source https://github.com/karanshukla430/github_finder.git
               git pull source master
+              git config pull.rebase false
 
       - name: Create Pull Request
         id: cpr

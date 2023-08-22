@@ -28,6 +28,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Make changes to pull request
+        run: date +%s > report.txt
 
       - name: Create Pull Request
         id: cpr
@@ -40,7 +42,7 @@ jobs:
           signoff: false
           branch: version_update_2
           base: master
-          delete-branch: true
+          delete-branch: false
           title: '[Example] Update report'
           body: |
             Update report

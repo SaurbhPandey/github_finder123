@@ -29,10 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Make changes to pull request
-        run: |
-              git remote add source https://github.com/karanshukla430/github_finder.git
-              git pull source master
-              git config --global pull.rebase true
+        run: date +%s > report.txt
 
       - name: Create Pull Request
         id: cpr

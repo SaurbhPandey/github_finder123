@@ -51,8 +51,8 @@ jobs:
           labels: |
             report
             automated pr
-          team-reviewers: |
-            developers
-            qa-team
+          # team-reviewers: |
+          #   developers
+          #   qa-team
           # milestone: 69
           draft: false

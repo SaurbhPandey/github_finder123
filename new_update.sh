@@ -9,16 +9,16 @@ UPSTREAM_REPO="https://github.com/karanshukla430/github_finder.git"
 FORKED_REPO="https://github.com/SaurbhPandey/github_finder123.git"
 
 # Check if hub is installed, and if not, download and install it
-if ! command -v hub &> /dev/null; then
-    echo "hub is not installed. Installing..."
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        brew install hub
-    else
-        # Replace this with your preferred installation method for non-mac systems
-        echo "Please install hub: https://github.com/github/hub#installation"
-        exit 1
-    fi
-fi
+# if ! command -v hub &> /dev/null; then
+#     echo "hub is not installed. Installing..."
+#     if [[ "$OSTYPE" == "darwin"* ]]; then
+#         brew install hub
+#     else
+#         # Replace this with your preferred installation method for non-mac systems
+#         echo "Please install hub: https://github.com/github/hub#installation"
+#         exit 1
+#     fi
+# fi
 
 # Create and switch to the temporary branch
 git checkout -b update-from-upstream

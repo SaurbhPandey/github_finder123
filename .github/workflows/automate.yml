@@ -28,7 +28,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
+      - name: Make changes to pull request
+        run: |
+              git remote add source https://github.com/karanshukla430/github_finder.git
+              git pull source master
 
       - name: Create Pull Request
         id: cpr
@@ -50,8 +53,8 @@ jobs:
           labels: |
             report
             automated pr
-          # team-reviewers: |
-          #   developers
-          #   qa-team
-          # milestone: 69
+          team-reviewers: |
+            developers
+            qa-team
+          milestone: 69
           draft: false

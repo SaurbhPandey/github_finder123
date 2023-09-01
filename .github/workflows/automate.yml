@@ -31,11 +31,11 @@ jobs:
       # - name: Make changes to pull request
       #   run: git pull version_update_2
 
-      # - name: git changes
-      #   run: git c
+      - name: git changes
+        run: git checkout master
 
-      # - name: git changes
-      #   run: git merge source/master
+      - name: git changes
+        run: git chekout -b new-branch
 
       - name: Create Pull Request
         id: cpr
@@ -46,7 +46,7 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
-          branch: master
+          branch: new-branch
           base: master
           delete-branch: false
           title: '[Example] Update report'

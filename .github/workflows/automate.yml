@@ -3,7 +3,7 @@ name: Automated Pull Request
 on:
   push:
     branches:
-      - new-branch
+      - version_update_2
 
 # jobs:
 #   create-pull-request:
@@ -28,8 +28,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Make changes to pull request
-        run: git pull version_update_2
+      # - name: Make changes to pull request
+      #   run: git pull version_update_2
 
       # - name: git changes
       #   run: git c
@@ -46,7 +46,7 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
-          branch: new-branch
+          branch: version_update_2
           base: master
           delete-branch: false
           title: '[Example] Update report'

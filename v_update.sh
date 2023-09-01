@@ -38,27 +38,11 @@ else
         git push origin $NEW_BRANCH_NAME
         echo "package.json updated and changes pushed to branch '$NEW_BRANCH_NAME'."
 
-        # # Create pull request
-        # GITHUB_TOKEN="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"
+        git checkout master
+        git checkout -b new-branch
+        git push 
 
-        # # Set pull request title and description
-        # PR_TITLE="For Updating Version $DATE_TIME"
-        # PR_DESCRIPTION="This pull request updates the version."
-
-        # # Set your GitHub username and repository name
-        # USERNAME="karanshukla430"
-        # REPO_NAME="HouseMarketPalce123"
-
-        # # Make the API request to create the pull request
-        # curl -X POST "https://api.github.com/repos/$USERNAME/$REPO_NAME/pulls" \
-        #     -H "Authorization: Bearer $GITHUB_TOKEN" \
-        #     -H "Content-Type: application/json" \
-        #     -d '{
-        #         "title": "'"$PR_TITLE"'",
-        #         "head": "'"$NEW_BRANCH_NAME"'",
-        #         "base": "'"$BASE_BRANCH"'",
-        #         "body": "'"$PR_DESCRIPTION"'"
-        #     }'
+      
     else
         git checkout master
         git branch -D $NEW_BRANCH_NAME

@@ -76,21 +76,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    # - name: Checkout repository
+    #   uses: actions/checkout@v2
+
+    - name: Checkout repo-1
       uses: actions/checkout@v2
-
-    – name: Checkout repo-1
-
-    uses: actions/checkout@v2
-
-    with:
-
-    repository:  https://github.com/karanshukla430/github_finder.git
-
-    ref: master
+      with:
+      repository:  https://github.com/karanshukla430/github_finder.git
+      ref: master
         
-        - name: git changes
-          run: git checkout master
+    - name: git changes
+      run: git checkout master
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3

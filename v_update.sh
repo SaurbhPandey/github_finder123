@@ -40,7 +40,7 @@ else
 
         git checkout master
         git checkout -b new-branch
-        git push 
+        git push --set-upstream origin new-branch
 
       
     else

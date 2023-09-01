@@ -31,11 +31,11 @@ jobs:
       # - name: Make changes to pull request
       #   run: git pull version_update_2
 
-      - name: git changes
-        run: git checkout origin/master
+      # - name: git changes
+      #   run: git checkout origin/master
 
-      - name: git changes
-        run: git chekout -b new-branch
+      # - name: git changes
+      #   run: git chekout -b new-branch
 
       - name: Create Pull Request
         id: cpr

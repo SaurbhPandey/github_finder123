@@ -79,15 +79,15 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-– name: Checkout repo-1
+    – name: Checkout repo-1
 
-uses: actions/checkout@v2
+    uses: actions/checkout@v2
 
-with:
+    with:
 
-repository:  https://github.com/karanshukla430/github_finder.git
+    repository:  https://github.com/karanshukla430/github_finder.git
 
-ref: master
+    ref: master
         
         - name: git changes
           run: git checkout master

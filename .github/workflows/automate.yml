@@ -35,7 +35,7 @@ jobs:
       #   run: git checkout origin/master
 
       - name: git changes
-        run: git chekout -b new-branch
+        run: git checkout -b new-branch
 
       - name: Create Pull Request
         id: cpr

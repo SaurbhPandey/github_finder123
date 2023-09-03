@@ -2,6 +2,12 @@ import { FaHome } from "react-icons/fa"
 import { Link } from "react-router-dom"
 
 function NotFound() {
+  // sjdbvdskjb
+  // sjdbvdskjb
+  // sjdbvdskjb
+  // sjdbvdskjb
+  // sjdbvdskjb
+  // sjdbvdskjb
   return (
     <div className="hero">
     <div className="text-center hero-content">

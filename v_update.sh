@@ -40,9 +40,9 @@ else
         git push origin $NEW_BRANCH_NAME
         echo "package.json updated and changes pushed to branch '$NEW_BRANCH_NAME'."
 
-        git checkout master
-        git checkout -b new-branch
-        git push --set-upstream origin new-branch
+        # git checkout master
+        # git checkout -b new-branch
+        # git push --set-upstream origin new-branch
 
       
     else

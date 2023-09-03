@@ -1,100 +1,126 @@
-# name: Automated Pull Request
+# # name: Automated Pull Request
+
+# # on:
+# #   push:
+# #     branches:
+# #       - version_update_2
+
+# # # jobs:
+# # #   create-pull-request:
+# # #     runs-on: ubuntu-latest
+    
+# # #     steps:
+# # #     - name: Checkout code
+# # #       uses: actions/checkout@v3
+      
+# # #     - name: Create pull request
+# # #       uses: peter-evans/create-pull-request@v5
+# # #       with:
+# # #         token: ${{ secrets.GITHUB_TOKEN }}
+# # #         commit-message: Automated Pull Request
+# # #         title: Automated Pull Request
+# # #         body: This pull request was automatically generated.
+# # #         branch: master
+# # #         base: version_update_2
+
+# # jobs:
+# #   createPullRequest:
+# #     runs-on: ubuntu-latest
+# #     steps:
+# #       - uses: actions/checkout@v3
+# #       # - name: Make changes to pull request
+# #       #   run: git pull version_update_2
+
+# #       # - name: git changes
+# #       #   run: git checkout origin/master
+
+# #       - name: git changes
+# #         run: git checkout -b new-branch
+
+# #       - name: Create Pull Request
+# #         id: cpr
+# #         uses: peter-evans/create-pull-request@v5
+# #         with:
+# #           token: ${{ secrets.GITHUB_TOKEN }}
+# #           commit-message: Update report
+# #           committer: GitHub <noreply@github.com>
+# #           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+# #           signoff: false
+# #           branch: new-branch
+# #           base: master
+# #           delete-branch: false
+# #           title: '[Example] Update report'
+# #           body: |
+# #             Update report
+# #             - Updated with date
+            
+# #           labels: |
+# #             report
+# #             automated pr
+# #           # team-reviewers: |
+# #           #   developers
+# #           #   qa-team
+# #           # milestone: 69
+# #           draft: false
+
+
+# name: Automate Pull Request
 
 # on:
 #   push:
 #     branches:
-#       - version_update_2
-
-# # jobs:
-# #   create-pull-request:
-# #     runs-on: ubuntu-latest
-    
-# #     steps:
-# #     - name: Checkout code
-# #       uses: actions/checkout@v3
-      
-# #     - name: Create pull request
-# #       uses: peter-evans/create-pull-request@v5
-# #       with:
-# #         token: ${{ secrets.GITHUB_TOKEN }}
-# #         commit-message: Automated Pull Request
-# #         title: Automated Pull Request
-# #         body: This pull request was automatically generated.
-# #         branch: master
-# #         base: version_update_2
+#       - new-branch
 
 # jobs:
-#   createPullRequest:
+#   automate_pull_request:
 #     runs-on: ubuntu-latest
+
 #     steps:
-#       - uses: actions/checkout@v3
-#       # - name: Make changes to pull request
-#       #   run: git pull version_update_2
+#     # - name: Checkout repository
+#     #   uses: actions/checkout@v2
 
-#       # - name: git changes
-#       #   run: git checkout origin/master
+#     - name: Checkout repo-1
+#       uses: actions/checkout@v2
+#       repository:  https://github.com/karanshukla430/github_finder.git
+#       ref: master
+        
+#     - name: git changes
+#       run: git checkout master
 
-#       - name: git changes
-#         run: git checkout -b new-branch
-
-#       - name: Create Pull Request
-#         id: cpr
-#         uses: peter-evans/create-pull-request@v5
-#         with:
-#           token: ${{ secrets.GITHUB_TOKEN }}
-#           commit-message: Update report
-#           committer: GitHub <noreply@github.com>
-#           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-#           signoff: false
-#           branch: new-branch
-#           base: master
-#           delete-branch: false
-#           title: '[Example] Update report'
-#           body: |
-#             Update report
-#             - Updated with date
-            
-#           labels: |
-#             report
-#             automated pr
-#           # team-reviewers: |
-#           #   developers
-#           #   qa-team
-#           # milestone: 69
-#           draft: false
+#     - name: Create Pull Request
+#       uses: peter-evans/create-pull-request@v3
+#       with:
+#         token: ${{ secrets.GITHUB_TOKEN }}
+#         commit-message: Automated Pull Request
+#         title: Automated Pull Request
+#         body: |
+#           This pull request is automatically generated.
+#         branch: new-branch
+#         base: master
 
 
-name: Automate Pull Request
-
+name: Create pull request
 on:
   push:
     branches:
-      - new-branch
-
+      - version_update_2
 jobs:
-  automate_pull_request:
+  prForMasterBranch:
     runs-on: ubuntu-latest
-
     steps:
-    # - name: Checkout repository
-    #   uses: actions/checkout@v2
-
-    - name: Checkout repo-1
-      uses: actions/checkout@v2
-      with:
-      repository:  https://github.com/karanshukla430/github_finder.git
-      ref: master
-        
-    - name: git changes
-      run: git checkout master
-
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v3
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        commit-message: Automated Pull Request
-        title: Automated Pull Request
-        body: |
-          This pull request is automatically generated.
-        branch: new-branch
-        base: master
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: Reset master branch
+        run: |
+          git fetch origin version_update_2:version_update_2
+          git reset --hard version_update_2
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: update master branch
+          title: Update master branch
+          branch: temp
+          delete-branch: true
+          # assignees: user-you-want-to
+          # reviewers: user-you-want-to
